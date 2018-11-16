@@ -11,11 +11,17 @@
       "./node_modules/@babel/polyfill"
     ]
   },
+  "engines": {
+    "node": ">= 10.8.0"
+  },
   "devDependencies": {
     "@babel/core": "^7.1.2",
+    "@babel/plugin-transform-regenerator": "7.0.0",
+    "@babel/plugin-transform-runtime": "7.1.0",
     "@babel/polyfill": "^7.0.0",
     "@babel/preset-env": "^7.1.0",
     "@babel/register": "^7.0.0",
+    "@babel/runtime-corejs2": "7.1.5",
     "babel-loader": "^8.0.4",
     "chai": "^4.2.0",
     "eslint": "^5.6.1",
@@ -40,6 +46,8 @@
     "webpack-cli": "^3.1.2"
   },
   "dependencies": {
-    "dedent": "^0.7.0"
+    "axios": "0.18.0",
+    "dedent": "^0.7.0",
+    "query-string": "6.2.0"
   }
 }

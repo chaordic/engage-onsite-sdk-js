@@ -1,6 +1,6 @@
 {
   "onsite": {
-    "dns": "https://recs.chaordicsystems.com"
+    "baseURL": "https://recs.chaordicsystems.com"
   },
   "responseType": [
     "onlyIds",

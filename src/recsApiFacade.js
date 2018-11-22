@@ -15,7 +15,7 @@ export const getPageRecommendations = async (params = {}) => {
 
     return response.data;
   } catch (e) {
-    error(e);
+    error(e.message);
     return {};
   }
 };

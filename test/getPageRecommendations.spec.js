@@ -308,6 +308,38 @@ describe('getPageRecommendations', () => {
     });
   });
 
+  describe('should not have been salesChannel thrown', () => {
+    it('with empty string', () => {
+      optionsRecommendations.salesChannel = '';
+
+      try {
+        fooSpy(optionsRecommendations);
+      } catch (e) {}
+
+      fooSpy.should.not.have.been.thrown();
+    });
+
+    it('with string', () => {
+      optionsRecommendations.salesChannel = 'salesChannelFake';
+
+      try {
+        fooSpy(optionsRecommendations);
+      } catch (e) {}
+
+      fooSpy.should.not.have.been.thrown();
+    });
+
+    it('except with different type', () => {
+      optionsRecommendations.salesChannel = 123;
+
+      try {
+        fooSpy(optionsRecommendations);
+      } catch (e) {}
+
+      fooSpy.should.have.been.thrown();
+    });
+  });
+
   describe('should not have been dummy thrown', () => {
     it('with empty prop', () => {
       delete optionsRecommendations.dummy;

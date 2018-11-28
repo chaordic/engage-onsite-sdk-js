@@ -1,6 +1,6 @@
 import config from './config.json';
 
-const getPageRecommendations = ({
+export const validatePageRecommendations = ({
   apiKey,
   secretKey,
   name,
@@ -12,6 +12,7 @@ const getPageRecommendations = ({
   productId = [],
   userId,
   productFormat,
+  salesChannel,
   dummy = false,
   homologation = false,
   showOnlyAvailable = true,
@@ -80,6 +81,10 @@ const getPageRecommendations = ({
     throw new Error('productFormat is invalid');
   }
 
+  if (salesChannel !== undefined && typeof salesChannel !== 'string') {
+    throw new Error('salesChannel is invalid');
+  }
+
   if (dummy !== undefined && typeof dummy !== 'boolean') {
     throw new Error('dummy is invalid');
   }
@@ -93,4 +98,6 @@ const getPageRecommendations = ({
   }
 };
 
-export default getPageRecommendations;
+export const getPageRecommendations = (params) => {
+  validatePageRecommendations(params);
+};

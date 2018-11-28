@@ -12,7 +12,11 @@ describe('recsApiFacade', () => {
     });
 
     it('should return data from "/pages/recommendations"', async () => {
-      const dataResponse = { recs: 'test' };
+      const dataResponse = {
+        top: [{}],
+        middle: [{}],
+        bottom: [{}],
+      };
 
       server.respondWith(
         'GET',

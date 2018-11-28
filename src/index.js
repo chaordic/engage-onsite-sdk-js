@@ -1,2 +1,3 @@
-export * from './getPageRecommendations';
-export * from './getPagesAndEventsRecommendations';
+export * from './pageRecommendations';
+export * from './pagesAndEventsRecommendations';
+export * from './productsRecommendations';

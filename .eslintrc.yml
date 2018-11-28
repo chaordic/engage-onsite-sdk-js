@@ -12,6 +12,8 @@ rules:
   indent: [2, 2]
   import/no-extraneous-dependencies: 0
   no-empty: 0
+  no-else-return: ["error", { allowElseIf: true }]
+  no-param-reassign: 0
 globals:
   chai: true
   expect: true
@@ -19,3 +21,7 @@ globals:
   assert: true
   sinon: true
 
+settings:
+  import/resolver:
+    webpack:
+      config: "webpack.config.js"

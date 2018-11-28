@@ -1,9 +1,10 @@
-import { validatePageRecommendations } from './getPageRecommendations';
+import { validatePageRecommendationsParams } from './pageRecommendations';
 import {
   getPagesAndEventsRecommendations as getRecommendations,
 } from './facades/recsApiFacade';
+import { formatCategories, formatTags } from './helpers';
 
-export const validatePageAndEventsRecommendations = ({
+export const validatePageAndEventsRecommendationsParams = ({
   sku,
   total,
   query,
@@ -12,7 +13,7 @@ export const validatePageAndEventsRecommendations = ({
   allowMailMarketing,
   ...params
 }) => {
-  validatePageRecommendations(params);
+  validatePageRecommendationsParams(params);
 
   if (sku !== undefined && !Array.isArray(sku)) {
     throw new Error('sku is invalid');
@@ -45,6 +46,15 @@ export const validatePageAndEventsRecommendations = ({
 };
 
 export const getPagesAndEventsRecommendations = async (params) => {
-  validatePageAndEventsRecommendations(params);
+  validatePageAndEventsRecommendationsParams(params);
+
+  if (params.tagId) {
+    params.tagId = formatTags(params.tagId);
+  }
+
+  if (params.categoryId) {
+    params.categoryId = formatCategories(params.categoryId);
+  }
+
   return getRecommendations(params);
 };

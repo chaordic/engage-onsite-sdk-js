@@ -1,6 +1,6 @@
-import { validatePageRecommendations } from '../src';
+import { validatePageRecommendationsParams } from '../src';
 
-describe('validatePageRecommendations', () => {
+describe('validatePageRecommendationsParams', () => {
   let optionsRecommendations;
   let fooSpy;
 
@@ -23,7 +23,7 @@ describe('validatePageRecommendations', () => {
       showOnlyAvailable: true,
     };
 
-    fooSpy = sinon.spy(validatePageRecommendations);
+    fooSpy = sinon.spy(validatePageRecommendationsParams);
   });
 
   describe('should have been apiKey thrown', () => {

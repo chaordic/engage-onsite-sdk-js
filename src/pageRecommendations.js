@@ -2,8 +2,9 @@ import config from './config.json';
 import {
   getPageRecommendations as getRecommendations,
 } from './facades/recsApiFacade';
+import { formatCategories, formatTags } from './helpers';
 
-export const validatePageRecommendations = ({
+export const validatePageRecommendationsParams = ({
   apiKey,
   secretKey,
   name,
@@ -50,14 +51,18 @@ export const validatePageRecommendations = ({
 
   if (
     !Array.isArray(categoryId)
-    || categoryId.filter(i => typeof i !== 'string').length
+    || categoryId.filter(i => (
+      typeof i !== 'string' && typeof i !== 'object'
+    )).length
   ) {
     throw new Error('categoryId is invalid');
   }
 
   if (
     !Array.isArray(tagId)
-    || tagId.filter(i => typeof i !== 'string').length
+    || tagId.filter(i => (
+      typeof i !== 'string' && typeof i !== 'object'
+    )).length
   ) {
     throw new Error('tagId is invalid');
   }
@@ -101,7 +106,16 @@ export const validatePageRecommendations = ({
   }
 };
 
-export const getPageRecommendations = async (params) => {
-  validatePageRecommendations(params);
+export const getPageRecommendations = async (params = {}) => {
+  validatePageRecommendationsParams(params);
+
+  if (params.tagId) {
+    params.tagId = formatTags(params.tagId);
+  }
+
+  if (params.categoryId) {
+    params.categoryId = formatCategories(params.categoryId);
+  }
+
   return getRecommendations(params);
 };

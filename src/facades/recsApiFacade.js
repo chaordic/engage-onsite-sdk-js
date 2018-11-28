@@ -32,3 +32,16 @@ export const getPagesAndEventsRecommendations = async (params = {}) => {
     return {};
   }
 };
+
+export const getProductsRecommendations = async (params = {}) => {
+  try {
+    const response = await api.get('/products/recommendations', {
+      params,
+    });
+
+    return response.data;
+  } catch (e) {
+    error(e.message);
+    return {};
+  }
+};

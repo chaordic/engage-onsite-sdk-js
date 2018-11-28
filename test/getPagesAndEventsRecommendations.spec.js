@@ -2,7 +2,7 @@ import {
   getPagesAndEventsRecommendations,
 } from '../src';
 
-describe.only('getPagesAndEventsRecommendations', () => {
+describe('getPagesAndEventsRecommendations', () => {
   let optionsRecommendations;
   let server;
 

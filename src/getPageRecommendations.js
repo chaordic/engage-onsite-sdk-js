@@ -103,6 +103,5 @@ export const validatePageRecommendations = ({
 
 export const getPageRecommendations = async (params) => {
   validatePageRecommendations(params);
-
   return getRecommendations(params);
 };

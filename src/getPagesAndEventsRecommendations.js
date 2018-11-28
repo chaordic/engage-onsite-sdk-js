@@ -1,4 +1,7 @@
 import { validatePageRecommendations } from './getPageRecommendations';
+import {
+  getPagesAndEventsRecommendations as getRecommendations,
+} from './facades/recsApiFacade';
 
 export const validatePageAndEventsRecommendations = ({
   sku,
@@ -41,6 +44,7 @@ export const validatePageAndEventsRecommendations = ({
   }
 };
 
-export const getPagesAndEventsRecommendations = (params) => {
+export const getPagesAndEventsRecommendations = async (params) => {
   validatePageAndEventsRecommendations(params);
+  return getRecommendations(params);
 };

@@ -1,4 +1,4 @@
-import { getPageRecommendations } from '../src/recsApiFacade';
+import { getPageRecommendations } from '../../src/facades/recsApiFacade';
 
 describe('recsApiFacade', () => {
   describe('getPageRecommendations', () => {

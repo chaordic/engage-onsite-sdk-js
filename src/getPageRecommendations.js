@@ -1,4 +1,7 @@
 import config from './config.json';
+import {
+  getPageRecommendations as getRecommendations,
+} from './facades/recsApiFacade';
 
 export const validatePageRecommendations = ({
   apiKey,
@@ -98,6 +101,8 @@ export const validatePageRecommendations = ({
   }
 };
 
-export const getPageRecommendations = (params) => {
+export const getPageRecommendations = async (params) => {
   validatePageRecommendations(params);
+
+  return getRecommendations(params);
 };

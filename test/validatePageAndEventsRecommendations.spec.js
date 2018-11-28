@@ -1,6 +1,6 @@
-import { getPagesAndEventsRecommendations } from '../src';
+import { validatePageAndEventsRecommendations } from '../src';
 
-describe('getPagesAndEventsRecommendations', () => {
+describe('validatePageAndEventsRecommendations', () => {
   let optionsRecommendations;
   let fooSpy;
 
@@ -29,7 +29,7 @@ describe('getPagesAndEventsRecommendations', () => {
       showOnlyAvailable: true,
     };
 
-    fooSpy = sinon.spy(getPagesAndEventsRecommendations);
+    fooSpy = sinon.spy(validatePageAndEventsRecommendations);
   });
 
   describe('should not have been sku thrown', () => {

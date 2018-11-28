@@ -1,6 +1,6 @@
-import { getPageRecommendations } from '../src';
+import { validatePageRecommendations } from '../src';
 
-describe('getPageRecommendations', () => {
+describe('validatePageRecommendations', () => {
   let optionsRecommendations;
   let fooSpy;
 
@@ -23,7 +23,7 @@ describe('getPageRecommendations', () => {
       showOnlyAvailable: true,
     };
 
-    fooSpy = sinon.spy(getPageRecommendations);
+    fooSpy = sinon.spy(validatePageRecommendations);
   });
 
   describe('should have been apiKey thrown', () => {

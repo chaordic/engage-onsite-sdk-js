@@ -19,3 +19,16 @@ export const getPageRecommendations = async (params = {}) => {
     return {};
   }
 };
+
+export const getPagesAndEventsRecommendations = async (params = {}) => {
+  try {
+    const response = await api.get('/events/recommendations', {
+      params,
+    });
+
+    return response.data;
+  } catch (e) {
+    error(e.message);
+    return {};
+  }
+};

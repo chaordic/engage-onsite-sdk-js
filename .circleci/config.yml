@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: node:10.14.1-alpine
+      - image: circleci/node:10.14-browsers
     steps:
       - checkout
       - run:

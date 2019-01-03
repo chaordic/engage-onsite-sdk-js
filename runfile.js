@@ -7,6 +7,8 @@ export const test = function test1() {
 
 export const build = () => run('webpack');
 
+export const release = () => run('standard-version');
+
 help(test, {
   description: 'Test JS files',
   options: {

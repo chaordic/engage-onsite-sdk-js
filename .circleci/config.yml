@@ -2,13 +2,13 @@ version: 2
 jobs:
   build:
     docker:
-      - image: debian:stretch
+      - image: node:10.14.1-alpine
     steps:
       - checkout
       - run:
-          name: Greeting
-          command: echo Hello, world.
+          name: Yarn
+          command: yarn
       - run:
-          name: Print the Current Time
-          command: date
+          name: Test
+          command: npx run test
 

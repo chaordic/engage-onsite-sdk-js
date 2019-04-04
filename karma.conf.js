@@ -1,10 +1,10 @@
-const webpackConfig = require('./webpack.config');
+const webpackConfig = require('./webpack.dev.js');
 process.env.CHROME_BIN = require('puppeteer').executablePath();
 
 module.exports = (config) => {
   config.set({
     basePath: '',
-    frameworks: ['mocha', 'chai', 'sinon-chai'],
+    frameworks: ['mocha', 'sinon-chai'],
     files: [
       './test/index.js',
     ],

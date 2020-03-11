@@ -1,5 +1,6 @@
 import { getPageRecommendations } from './facades/pages';
 import { validate as validatePageParams } from './validators/pages';
+import { Slot } from './classes/slot';
 
 export default {
   getRecommendations: async function getRecommendations(params = {}) {

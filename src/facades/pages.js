@@ -51,3 +51,17 @@ export async function getPageRecommendations({
     });
   });
 }
+
+export async function refresh(url) {
+  return new Promise((resolve) => {
+    ajax({
+      url,
+      type: 'GET',
+      success: resolve,
+      error: (err) => {
+        error(err);
+        resolve({});
+      },
+    });
+  });
+}

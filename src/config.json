@@ -1,6 +1,6 @@
 {
   "onsite": {
-    "baseURL": "https://recs.chaordicsystems.com/v0"
+    "baseURL": "https://recs.chaordicsystems.com/v1"
   },
   "responseType": [
     "onlyIds",

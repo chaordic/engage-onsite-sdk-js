@@ -1,3 +1,1 @@
-export * from './pageRecommendations';
-export * from './pagesAndEventsRecommendations';
-export * from './productsRecommendations';
+export { default as pages } from './pages';

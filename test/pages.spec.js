@@ -1,23 +1,27 @@
 import { pages } from '../src';
 import { Slot } from '../src/classes/slot';
+import helpers from '../src/helpers';
 
 describe('pages', function () {
   describe('getRecommendations', function () {
-    const server = sinon.createFakeServer();
+    const sandbox = sinon.createSandbox();
+    let server;
     let optionsRecommendations;
 
     beforeEach(function () {
+      server = sinon.createFakeServer();
+
       optionsRecommendations = {
         apiKey: 'apiKeyFake',
         secretKey: 'secretKeyFake',
         page: 'home',
         source: 'sourceFake',
-        deviceId: 'deviceIdFake',
         url: 'urlFake',
         categories: ['cat01_cat_03_cat04', 'cat02_cat05'],
         tags: ['tag1', 'tag2'],
         productIds: ['product1', 'product2'],
         userId: 'userIdFake',
+        deviceId: 'deviceIdFake',
         productFormat: 'compact',
         salesChannel: 'salesChannelFake',
         dummy: false,
@@ -28,6 +32,7 @@ describe('pages', function () {
 
     afterEach(function () {
       server.restore();
+      sandbox.restore();
     });
 
     it('should return data from "/pages/recommendations"', async function () {
@@ -86,6 +91,28 @@ describe('pages', function () {
 
       const data = await pages.getRecommendations(optionsRecommendations);
       expect(data).to.deep.equal({});
+    });
+
+    it('should fetch a deviceId if none is passed', async function () {
+      delete optionsRecommendations.deviceId;
+
+      const getDeviceIdStub = sandbox.stub(helpers, 'getDeviceId').returns('device-id');
+
+      server.respondWith(
+        'GET',
+        /\/pages\/recommendations/,
+        [
+          200,
+          { 'Content-Type': 'application/json' },
+          'ok',
+        ],
+      );
+
+      server.respondImmediately = true;
+
+      await pages.getRecommendations(optionsRecommendations);
+
+      expect(getDeviceIdStub).to.have.been.calledWith(optionsRecommendations.apiKey);
     });
   });
 });

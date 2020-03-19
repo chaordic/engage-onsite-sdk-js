@@ -1,9 +1,9 @@
-import { ajax } from '@linx-impulse/commons-js/http/ajax';
+import helpers from '../helpers';
 
 const { error } = console;
 
 export async function send(url) {
-  ajax({
+  helpers.ajax({
     url,
     error: (err) => {
       error(err);

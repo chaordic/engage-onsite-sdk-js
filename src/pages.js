@@ -1,6 +1,7 @@
 import { getPageRecommendations } from './facades/pages';
 import { validate as validatePageParams } from './validators/pages';
 import { Slot } from './classes/slot';
+import helpers from './helpers';
 
 export default {
   /**
@@ -37,6 +38,8 @@ export default {
    * @param {string[]} [params.productIds] - An array of product IDs to be used to get
    * recommendations.
    * @param {string} [params.userId] - The customer's user ID.
+   * @param {string} [params.deviceId] - The customer's device ID, this information is optional. If
+   * not passed, we will try to fetch it from our server before getting recommendations.
    * @param {string} [params.productFormat='compact'] - Format in which the products should be
    * returned. Must be one of 'onlyIds', 'compact' or 'complete'.
    * @param {boolean} [params.showLayout=true] - Return layout information registered on the
@@ -51,11 +54,18 @@ export default {
    * or removed.
    * @returns {Object} Returns an object with the slots registered in the dashboard. As well as
    * the template ID.
+   * @property {string} templateId - The template's unique ID.
+   * @property {Slot[]} slots - An array of registered slots, each slot contains
+   * widgets and rules for how to render it. For more info see {@link Slot}
    */
   getRecommendations: async function getRecommendations(params = {}) {
     validatePageParams(params);
 
     let pageSchema = {};
+
+    if (!params.deviceId) {
+      params.deviceId = await helpers.getDeviceId(params.apiKey);
+    }
 
     const response = await getPageRecommendations(params);
 

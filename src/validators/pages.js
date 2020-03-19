@@ -4,7 +4,6 @@ export function validate({
   apiKey,
   page,
   source,
-  deviceId,
   url,
   categories = [],
   tags = [],
@@ -31,10 +30,6 @@ export function validate({
 
   if (!source || typeof source !== 'string') {
     throw new Error('source is invalid');
-  }
-
-  if (typeof deviceId !== 'string') {
-    throw new Error('deviceId is invalid');
   }
 
   if (url !== undefined && typeof url !== 'string') {

@@ -10,7 +10,6 @@ describe('pages', function () {
       secretKey: 'tis-a-secret',
       page: 'home',
       source: 'desktop',
-      deviceId: 'some-device-id',
       url: 'http://some.url',
       categories: ['cat-01', 'cat-02'],
       tags: ['tag-01', 'tag-02'],
@@ -96,8 +95,6 @@ describe('pages', function () {
         }).to.throw('source is invalid');
       });
     });
-
-    describe.skip('parameter deviceId', function () {});
 
     describe('parameter url', function () {
       it('should throw when url exists but is not a string', function () {

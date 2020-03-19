@@ -1,5 +1,5 @@
-import { ajax } from '@linx-impulse/commons-js/http/ajax';
 import config from '../config.json';
+import helpers from '../helpers';
 
 const { error } = console;
 
@@ -22,7 +22,7 @@ export async function getPageRecommendations({
   showOnlyAvailable,
 }) {
   return new Promise((resolve) => {
-    ajax({
+    helpers.ajax({
       url: `${config.onsite.baseURL}/pages/recommendations`,
       type: 'GET',
       params: {
@@ -54,7 +54,7 @@ export async function getPageRecommendations({
 
 export async function refresh(url) {
   return new Promise((resolve) => {
-    ajax({
+    helpers.ajax({
       url,
       type: 'GET',
       success: resolve,

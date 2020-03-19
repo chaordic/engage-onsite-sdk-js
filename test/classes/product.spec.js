@@ -52,6 +52,6 @@ describe('Product class', function () {
   });
 
   describe('sendClickEvent', function () {
-    it('should call send with the viewUrl');
+    it('should call send with the url property');
   });
 });

@@ -21,8 +21,10 @@ export async function getPageRecommendations({
   homologation,
   showOnlyAvailable,
 }) {
-  return new Promise((resolve) => {
-    helpers.ajax({
+  let response = {};
+
+  try {
+    response = await helpers.ajax({
       url: `${config.onsite.baseURL}/pages/recommendations`,
       type: 'GET',
       params: {
@@ -43,25 +45,25 @@ export async function getPageRecommendations({
         homologation,
         showOnlyAvailable,
       },
-      success: resolve,
-      error: (err) => {
-        error(err);
-        resolve({});
-      },
     });
-  });
+  } catch (err) {
+    error(err);
+  }
+
+  return response;
 }
 
 export async function refresh(url) {
-  return new Promise((resolve) => {
-    helpers.ajax({
+  let response = {};
+
+  try {
+    response = await helpers.ajax({
       url,
       type: 'GET',
-      success: resolve,
-      error: (err) => {
-        error(err);
-        resolve({});
-      },
     });
-  });
+  } catch (err) {
+    error(err);
+  }
+
+  return response;
 }

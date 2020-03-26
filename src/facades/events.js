@@ -3,10 +3,11 @@ import helpers from '../helpers';
 const { error } = console;
 
 export async function send(url) {
-  helpers.ajax({
-    url,
-    error: (err) => {
-      error(err);
-    },
-  });
+  try {
+    helpers.ajax({
+      url,
+    });
+  } catch (err) {
+    error(err);
+  }
 }

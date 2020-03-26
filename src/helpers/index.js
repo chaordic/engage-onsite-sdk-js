@@ -9,21 +9,17 @@ const helpers = {
   getCookie,
   setCookie,
   getDeviceId: async function getDeviceId(apiKey) {
-    return new Promise((resolve) => {
-      const deviceId = helpers.getCookie(config.cookieName.deviceId);
+    let deviceId = helpers.getCookie(config.cookieName.deviceId);
 
-      if (deviceId) {
-        resolve(deviceId);
-      }
-
-      helpers.ajax({
+    if (!deviceId) {
+      deviceId = await helpers.ajax({
         url: `${config.onsite.deviceIdURL}?q=${JSON.stringify({ apiKey })}`,
-        success: (data) => {
-          helpers.setCookie(config.cookieName.deviceId, data);
-          resolve(data);
-        },
       });
-    });
+
+      helpers.setCookie(config.cookieName.deviceId, deviceId);
+    }
+
+    return deviceId;
   },
 };
 

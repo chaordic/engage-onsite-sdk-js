@@ -799,10 +799,10 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@linx-impulse/commons-js@4.2.1":
-  version "4.2.1"
-  resolved "https://registry.yarnpkg.com/@linx-impulse/commons-js/-/commons-js-4.2.1.tgz#1434245c73b895599cd7970525ba07291ec10ccd"
-  integrity sha512-bzpnwME2Gq0Jg+Btw7jQXg2F86EwqYnQf7f/vM5b1WpFv0GnrYRnOCHHCaRddoX88pRRsJwU9ihioiVOXZNeGQ==
+"@linx-impulse/commons-js@4.3.0":
+  version "4.3.0"
+  resolved "https://registry.yarnpkg.com/@linx-impulse/commons-js/-/commons-js-4.3.0.tgz#59e63b2347f5f6d67805a194b041d21b7ac84ec5"
+  integrity sha512-ln+KGaLmVCPnSD+zV2JjCKyHNUieoQWEbbmM5jXYX+PHsdinTw88lGP0hB/V3KAIb5oIMPkQDhb9Cts9Jhevjw==
 
 "@sinonjs/commons@^1", "@sinonjs/commons@^1.6.0", "@sinonjs/commons@^1.7.0", "@sinonjs/commons@^1.7.2":
   version "1.8.0"

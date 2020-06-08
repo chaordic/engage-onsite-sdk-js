@@ -1,5 +1,5 @@
 import { pages } from '../src';
-import { Slot } from '../src/classes/slot';
+import Slot from '../src/classes/slot';
 import helpers from '../src/helpers';
 
 describe('pages', function () {

@@ -1,6 +1,6 @@
-import { Widget } from '../../src/classes/widget';
-import { Product } from '../../src/classes/product';
-import { Campaign } from '../../src/classes/campaign';
+import Widget from '../../src/classes/widget';
+import Product from '../../src/classes/product';
+import Campaign from '../../src/classes/campaign';
 
 describe('Widget class', function () {
   const sandbox = sinon.createSandbox();

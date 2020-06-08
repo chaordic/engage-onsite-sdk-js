@@ -1,5 +1,5 @@
-import { Slot } from '../../src/classes/slot';
-import { Widget } from '../../src/classes/widget';
+import Slot from '../../src/classes/slot';
+import Widget from '../../src/classes/widget';
 
 describe('Slot class', function () {
   describe('new Slot instance', function () {

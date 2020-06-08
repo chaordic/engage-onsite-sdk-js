@@ -16,10 +16,11 @@ export default class Slot {
    * @param {Widget[]} slot.widgets - An array of Widget objects.
    * @param {object} injectionRules - Rules used to render the slot.
    * @param {object} themes - An object containing the themes returned from the API.
-   * @param {Class} ProductClass - A custom product class to be used in the
-   * proprerties that hold product information, defaults to Product.
+   * @param {function} productFactory - A custom callback to instantiate product
+   * objects, it receives two parameters, product and widget and must return an
+   * instance of a class that represents the product.
    */
-  constructor({ slotId, widgets, injectionRules }, themes = {}, ProductClass) {
+  constructor({ slotId, widgets, injectionRules }, themes = {}, productFactory) {
     /**
      * The slot's unique identifier, this ID is registered and can be changed on the dashboard
      * page. Ex: top, middle, bottom.
@@ -32,7 +33,7 @@ export default class Slot {
      * @type {Widget[]}
      */
     this.widgets = (widgets || []).map(
-      (widget) => new Widget(widget, themes[widget.themeId], ProductClass),
+      (widget) => new Widget(widget, themes[widget.themeId], productFactory),
     );
     /**
      * Rules used to render the slot. These rules are registered

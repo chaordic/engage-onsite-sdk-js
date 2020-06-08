@@ -29,8 +29,10 @@ export default class Widget {
    * @param {string} widget.refreshUrl - Url to get a new reference product and new recommendations,
    * for widget's that use a reference product
    * @param {object} theme - The widget's theme.
-   * @param {object} ProductClass - A custom product class to be used in the
-   * proprerties that hold product information, defaults to {@link Product}.
+   * @param {function} productFactory - A custom callback to instantiate product
+   * objects, it receives two parameters, product and widget and must return an
+   * instance of a class that represents the product, defaults to a function
+   * that uses the {@link Product} class.
    */
   constructor({
     id,
@@ -42,7 +44,7 @@ export default class Widget {
     menu,
     viewUrl,
     refreshUrl,
-  }, theme = {}, ProductClass = Product) {
+  }, theme = {}, productFactory = (data) => new Product(data)) {
     /**
      * The widget's unique identifier.
      * @type {string}
@@ -78,7 +80,7 @@ export default class Widget {
     this.references = null;
 
     if (references) {
-      this.references = (references).map((ref) => new ProductClass(ref));
+      this.references = (references).map((ref) => productFactory(ref, this));
     }
 
     /**
@@ -87,7 +89,7 @@ export default class Widget {
      * see {@link Product}.
      * @type {Product[]}
      */
-    this.recommendations = (recommendations).map((rec) => new ProductClass(rec));
+    this.recommendations = (recommendations).map((rec) => productFactory(rec, this));
 
     /**
      * Url to send the widget's view event. The method sendViewEvent should be
@@ -117,15 +119,11 @@ export default class Widget {
     }
 
     /**
-     * A custom product class to be used in the
-     * proprerties that hold product information.
-     * @type {object}
+     * A custom callback to instantiate product
+     * objects.
+     * @type {function}
      */
-    this.CustomProductClass = undefined;
-
-    if (ProductClass) {
-      this.CustomProductClass = ProductClass;
-    }
+    this.productFactory = productFactory;
 
     /**
      * The widget theme, this property holds all layout
@@ -153,6 +151,6 @@ export default class Widget {
   async refreshReference() {
     const data = await refresh(this.refreshReference);
 
-    return new Widget(data, this.theme, this.CustomProductClass);
+    return new Widget(data, this.theme, this.productFactory);
   }
 }

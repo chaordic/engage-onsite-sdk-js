@@ -1,5 +1,5 @@
-import { Campaign } from './campaign';
-import { Product } from './product';
+import Campaign from './campaign';
+import Product from './product';
 import { refresh } from '../facades/pages';
 import { send } from '../facades/events';
 
@@ -11,7 +11,7 @@ import { send } from '../facades/events';
  * will have different attributes some of them exclusive to that specific
  * kind of widget.
  */
-export class Widget {
+export default class Widget {
   /**
    * Widget Constructor
    *

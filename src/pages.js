@@ -1,6 +1,6 @@
 import { getPageRecommendations } from './facades/pages';
 import { validate as validatePageParams } from './validators/pages';
-import { Slot } from './classes/slot';
+import Slot from './classes/slot';
 import helpers from './helpers';
 
 export default {

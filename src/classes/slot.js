@@ -1,4 +1,4 @@
-import { Widget } from './widget';
+import Widget from './widget';
 
 /**
  * Class representing a slot
@@ -7,7 +7,7 @@ import { Widget } from './widget';
  * are registered on the dashboard, these rules define where and how
  * the slot will be rendered in the client's website.
  */
-export class Slot {
+export default class Slot {
   /**
    * Slot Constructor
    *

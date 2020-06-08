@@ -7,7 +7,7 @@ import { refresh } from '../facades/pages';
  * on the widget's menu. Each campaign has a set of recommendations that
  * will be shown on the parent widget at a given moment.
  */
-export class Campaign {
+export default class Campaign {
   /** Campaign Constructor
    *
    * @param {object} data - Campaign data.

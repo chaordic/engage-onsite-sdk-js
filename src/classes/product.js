@@ -8,7 +8,7 @@ import { send } from '../facades/events';
  * that was passed when calling the getRecommendation function. The id property
  * and the sendClickEvent method will always be available.
  */
-export class Product {
+export default class Product {
   /**
    * Product constructor
    *

@@ -1,4 +1,4 @@
-import { Product } from '../../src/classes/product';
+import Product from '../../src/classes/product';
 
 describe('Product class', function () {
   const sandbox = sinon.createSandbox();

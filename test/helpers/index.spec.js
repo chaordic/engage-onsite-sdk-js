@@ -1,9 +1,8 @@
 import helpers from '../../src/helpers';
 import config from '../../src/config.json';
 
-const mockDevId = 'some-device-id';
-
 describe('helpers', function () {
+  const mockDevId = 'some-device-id';
   const sandbox = sinon.createSandbox();
   let server;
 

@@ -52,13 +52,16 @@ export default {
    * @param {boolean} [params.homologation=false] - Return all widgets, even disabled ones.
    * @param {boolean} [params.showOnlyAvailable=true] - Filter out products with status unavailable
    * or removed.
+   * @param {function} productFactory - A custom callback to instantiate product
+   * objects, it receives two parameters, product and widget and must return an
+   * instance of a class that represents the product.
    * @returns {Object} Returns an object with the slots registered in the dashboard. As well as
    * the template ID.
    * @property {string} templateId - The template's unique ID.
    * @property {Slot[]} slots - An array of registered slots, each slot contains
    * widgets and rules for how to render it. For more info see {@link Slot}
    */
-  getRecommendations: async function getRecommendations(params = {}) {
+  getRecommendations: async function getRecommendations(params = {}, productFactory) {
     validatePageParams(params);
 
     let pageSchema = {};
@@ -72,7 +75,9 @@ export default {
     if (response.templateId) {
       pageSchema = {
         templateId: response.templateId,
-        slots: (response.slots || []).map((slot) => new Slot(slot, response.themes)),
+        slots: (response.slots || []).map(
+          (slot) => new Slot(slot, response.themes, productFactory),
+        ),
       };
     }
 

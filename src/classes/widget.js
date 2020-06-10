@@ -52,6 +52,14 @@ export default class Widget {
     }
 
     /**
+     * The widget theme, this property holds all layout
+     * settings registered on the dashboard. If the parameter showLayout
+     * was passed as false, this property will be unavailable.
+     * @type {Object}
+     */
+    this.theme = theme;
+
+    /**
      * The widget's unique identifier.
      * @type {string}
      */
@@ -86,7 +94,7 @@ export default class Widget {
     this.references = null;
 
     if (references) {
-      this.references = (references).map((ref) => productFactory(ref, this));
+      this.references = (references).map((product) => productFactory(product, this));
     }
 
     /**
@@ -95,7 +103,7 @@ export default class Widget {
      * see {@link Product}.
      * @type {Product[]}
      */
-    this.recommendations = (recommendations).map((rec) => productFactory(rec, this));
+    this.recommendations = (recommendations).map((product) => productFactory(product, this));
 
     /**
      * Url to send the widget's view event. The method sendViewEvent should be
@@ -130,14 +138,6 @@ export default class Widget {
      * @type {function}
      */
     this.productFactory = productFactory;
-
-    /**
-     * The widget theme, this property holds all layout
-     * settings registered on the dashboard. If the parameter showLayout
-     * was passed as false, this property will be unavailable.
-     * @type {Object}
-     */
-    this.theme = theme;
   }
 
   /**

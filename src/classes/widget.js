@@ -3,6 +3,8 @@ import Product from './product';
 import { refresh } from '../facades/pages';
 import { send } from '../facades/events';
 
+const { error } = console;
+
 /**
  * Class representing a widget
  *
@@ -45,6 +47,10 @@ export default class Widget {
     viewUrl,
     refreshUrl,
   }, theme = {}, productFactory = (data) => new Product(data)) {
+    if (!id) {
+      throw new Error('id is invalid');
+    }
+
     /**
      * The widget's unique identifier.
      * @type {string}
@@ -151,6 +157,14 @@ export default class Widget {
   async refreshReference() {
     const data = await refresh(this.refreshReference);
 
-    return new Widget(data, this.theme, this.productFactory);
+    let refreshedWidget;
+
+    try {
+      refreshedWidget = new Widget(data, this.theme, this.productFactory);
+    } catch (err) {
+      error(err);
+    }
+
+    return refreshedWidget;
   }
 }

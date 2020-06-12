@@ -28,8 +28,8 @@ export default class Widget {
    * @param {Campaign[]} widget.menu - An array of campaigns. Each campaign corresponds to one menu
    * item.
    * @param {string} widget.viewUrl - Url to send the widget's view event.
-   * @param {string} widget.refreshUrl - Url to get a new reference product and new recommendations,
-   * for widget's that use a reference product
+   * @param {string} widget.refreshReferenceUrl - Url to get a new reference product
+   * and new recommendations, for widget's that use a reference product
    * @param {object} theme - The widget's theme.
    * @param {function} productFactory - A custom callback to instantiate product
    * objects, it receives two parameters, product and widget and must return an
@@ -45,7 +45,7 @@ export default class Widget {
     recommendations = [],
     menu,
     viewUrl,
-    refreshUrl,
+    refreshReferenceUrl,
   }, theme = {}, productFactory = (data) => new Product(data)) {
     if (!id) {
       throw new Error('id is invalid');
@@ -117,7 +117,7 @@ export default class Widget {
      * use a reference product. The method refreshReference should be preferred.
      * @type {string}
      */
-    this.refreshUrl = refreshUrl;
+    this.refreshReferenceUrl = refreshReferenceUrl;
 
     /**
      * An array of campaigns. Each campaign corresponds to one menu item,
@@ -155,7 +155,7 @@ export default class Widget {
    * @returns {Widget}
    */
   async refreshReference() {
-    const data = await refresh(this.refreshReference);
+    const data = await refresh(this.refreshReferenceUrl);
 
     let refreshedWidget;
 

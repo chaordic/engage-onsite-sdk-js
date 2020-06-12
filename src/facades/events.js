@@ -10,9 +10,11 @@ const { error } = console;
  */
 export async function send(url) {
   try {
-    helpers.ajax({
-      url,
-    });
+    if (url) {
+      helpers.ajax({
+        url,
+      });
+    }
   } catch (err) {
     error(err);
   }

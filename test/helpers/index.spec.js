@@ -37,6 +37,8 @@ describe('helpers', function () {
 
       server.respondImmediately = true;
 
+      helpers.deleteCookie(config.cookieName.deviceId);
+
       const setCookieSpy = sandbox.spy(helpers, 'setCookie');
 
       const result = await helpers.getDeviceId('some-api-key');

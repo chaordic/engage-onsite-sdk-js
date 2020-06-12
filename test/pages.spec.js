@@ -76,7 +76,7 @@ describe('pages', function () {
       });
     });
 
-    it('should return empty array when request fail on "/pages/recommendations"', async function () {
+    it('should return null when request fail on "/pages/recommendations"', async function () {
       server.respondWith(
         'GET',
         /\/pages\/recommendations/,
@@ -90,7 +90,7 @@ describe('pages', function () {
       server.respondImmediately = true;
 
       const data = await pages.getRecommendations(optionsRecommendations);
-      expect(data).to.deep.equal({});
+      expect(data).to.deep.equal(null);
     });
 
     it('should fetch a deviceId if none is passed', async function () {

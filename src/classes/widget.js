@@ -37,27 +37,23 @@ export default class Widget {
    * that uses the {@link Product} class.
    */
   constructor({
-    id,
-    algorithm,
-    feature,
-    title,
-    references,
+    id = '',
+    algorithm = '',
+    feature = '',
+    title = '',
+    references = null,
     recommendations = [],
     menu,
-    viewUrl,
-    refreshReferenceUrl,
+    viewUrl = '',
+    refreshReferenceUrl = '',
   }, theme = {}, productFactory = (data) => new Product(data)) {
     if (!id) {
       throw new Error('id is invalid');
     }
 
-    /**
-     * The widget theme, this property holds all layout
-     * settings registered on the dashboard. If the parameter showLayout
-     * was passed as false, this property will be unavailable.
-     * @type {Object}
-     */
-    this.theme = theme;
+    if (!viewUrl) {
+      throw new Error('viewUrl is invalid');
+    }
 
     /**
      * The widget's unique identifier.
@@ -83,27 +79,6 @@ export default class Widget {
      * @type {string}
      */
     this.title = title;
-
-    /**
-     * An array of reference products, for widgets that need a reference such as
-     * similar items and frequently bought together. Each product is of Product type unless
-     * a custom class is passed. For more info
-     * on Products see {@link Product}.
-     * @type {Product[]}
-     */
-    this.references = null;
-
-    if (references) {
-      this.references = (references).map((product) => productFactory(product, this));
-    }
-
-    /**
-     * An array of product recommendations. Each product is of Product type unless
-     * a custom class is passed. For more info on Products
-     * see {@link Product}.
-     * @type {Product[]}
-     */
-    this.recommendations = (recommendations).map((product) => productFactory(product, this));
 
     /**
      * Url to send the widget's view event. The method sendViewEvent should be
@@ -133,6 +108,35 @@ export default class Widget {
     }
 
     /**
+     * The widget theme, this property holds all layout
+     * settings registered on the dashboard. If the parameter showLayout
+     * was passed as false, this property will be unavailable.
+     * @type {Object}
+     */
+    this.theme = theme;
+
+    /**
+     * An array of reference products, for widgets that need a reference such as
+     * similar items and frequently bought together. Each product is of Product type unless
+     * a custom class is passed. For more info
+     * on Products see {@link Product}.
+     * @type {Product[]}
+     */
+    this.references = null;
+
+    if (references) {
+      this.references = (references).map((product) => productFactory(product, this));
+    }
+
+    /**
+     * An array of product recommendations. Each product is of Product type unless
+     * a custom class is passed. For more info on Products
+     * see {@link Product}.
+     * @type {Product[]}
+     */
+    this.recommendations = (recommendations || []).map((product) => productFactory(product, this));
+
+    /**
      * A custom callback to instantiate product
      * objects.
      * @type {function}
@@ -155,16 +159,14 @@ export default class Widget {
    * @returns {Widget}
    */
   async refreshReference() {
-    const data = await refresh(this.refreshReferenceUrl);
-
-    let refreshedWidget;
-
     try {
-      refreshedWidget = new Widget(data, this.theme, this.productFactory);
+      const data = await refresh(this.refreshReferenceUrl);
+      const refreshedWidget = new Widget(data, this.theme, this.productFactory);
+      return refreshedWidget;
     } catch (err) {
       error(err);
+      // return empty result when refresh fail or widget data is invalid
+      return null;
     }
-
-    return refreshedWidget;
   }
 }

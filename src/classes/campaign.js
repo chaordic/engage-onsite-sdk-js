@@ -1,5 +1,7 @@
 import { refresh } from '../facades/pages';
 
+const { error } = console;
+
 /**
  * Class representing a Campaign
  *
@@ -74,10 +76,14 @@ export default class Campaign {
    * @returns {void}
    */
   async select() {
-    const data = await refresh(this.url);
+    try {
+      const data = await refresh(this.url);
 
-    if (typeof this.initialize === 'function') {
-      this.initialize(data);
+      if (typeof this.initialize === 'function') {
+        this.initialize(data);
+      }
+    } catch (e) {
+      error(e);
     }
   }
 }

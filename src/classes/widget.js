@@ -51,10 +51,6 @@ export default class Widget {
       throw new Error('id is invalid');
     }
 
-    if (!viewUrl) {
-      throw new Error('viewUrl is invalid');
-    }
-
     /**
      * The widget's unique identifier.
      * @type {string}

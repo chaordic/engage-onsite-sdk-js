@@ -61,7 +61,7 @@ export async function getPageRecommendations({
   homologation,
   showOnlyAvailable,
 }) {
-  let response = {};
+  let response = null;
 
   try {
     response = await helpers.ajax({
@@ -94,7 +94,7 @@ export async function getPageRecommendations({
 }
 
 export async function refresh(url) {
-  let response = {};
+  let response = null;
 
   try {
     response = await helpers.ajax({

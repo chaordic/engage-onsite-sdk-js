@@ -3,6 +3,8 @@ import { validate as validatePageParams } from './validators/pages';
 import Slot from './classes/slot';
 import helpers from './helpers';
 
+const { error } = console;
+
 export default {
   /**
    * Get recommendations for a page
@@ -62,25 +64,33 @@ export default {
    * widgets and rules for how to render it. For more info see {@link Slot}
    */
   getRecommendations: async function getRecommendations(params = {}, productFactory) {
-    validatePageParams(params);
+    try {
+      validatePageParams(params);
 
-    let pageSchema = {};
+      let pageSchema = null;
 
-    if (!params.deviceId) {
-      params.deviceId = await helpers.getDeviceId(params.apiKey);
-    }
+      if (!params.deviceId) {
+        params.deviceId = await helpers.getDeviceId(params.apiKey);
+      }
 
-    const response = await getPageRecommendations(params);
+      const response = await getPageRecommendations(params);
 
-    if (response.templateId) {
-      pageSchema = {
-        templateId: response.templateId,
-        slots: (response.slots || []).map(
-          (slot) => new Slot(slot, response.themes, productFactory),
-        ),
+      if (response) {
+        pageSchema = {
+          templateId: response.templateId,
+          slots: (response.slots || []).map(
+            (slot) => new Slot(slot, response.themes, productFactory),
+          ),
+        };
+      }
+
+      return pageSchema;
+    } catch (e) {
+      error(e);
+
+      return {
+        error: e,
       };
     }
-
-    return pageSchema;
   },
 };

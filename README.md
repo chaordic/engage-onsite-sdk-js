@@ -45,3 +45,26 @@ It will create a global object that can be used as follow:
   engageOnsiteSdkJs.pages.getRecommendations({...});
 </script>
 ```
+
+### Release conventions
+When releasing a new version of this sofware, we should follow the standards described in https://semver.org/
+
+The commands below already follow those guidelines so you should just run:
+
+```
+npm run release
+```
+
+or
+
+```
+yarn release
+```
+
+In case of a prerelease version. We can use the optional parameter:
+
+```
+--prerelease [alpha|beta|rc]
+```
+
+When deciding the prerelease tag, we should follow the guidelines described in https://www.drupal.org/node/467020

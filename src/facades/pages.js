@@ -61,10 +61,8 @@ export async function getPageRecommendations({
   homologation,
   showOnlyAvailable,
 }) {
-  let response = null;
-
   try {
-    response = await helpers.ajax({
+    const response = await helpers.ajax({
       url: `${config.onsite.baseURL}/pages/recommendations`,
       type: 'GET',
       params: {
@@ -86,11 +84,12 @@ export async function getPageRecommendations({
         showOnlyAvailable,
       },
     });
-  } catch (err) {
-    error(err);
-  }
 
-  return response;
+    return response;
+  } catch (e) {
+    error('could not receive response:', e);
+    return null;
+  }
 }
 
 export async function refresh(url) {

@@ -3,3 +3,5 @@ docs
 node_modules
 package-lock.json
 yarn-error.log
+.yalc
+yalc.lock

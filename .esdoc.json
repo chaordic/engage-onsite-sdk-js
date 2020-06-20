@@ -1,0 +1,10 @@
+{
+  "source": "./src",
+  "destination": "./docs",
+  "plugins": [
+    { "name": "esdoc-standard-plugin" },
+    { "name": "esdoc-undocumented-identifier-plugin", "option": { "enable": false } },
+    { "name": "esdoc-unexported-identifier-plugin", "option": { "enable": false } },
+    { "name": "esdoc-ecmascript-proposal-plugin", "option": { "all": true } }
+  ]
+}

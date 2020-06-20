@@ -2,6 +2,38 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.1.0-rc.0"></a>
+# [0.1.0-rc.0](https://github.com/chaordic/engage-onsite-sdk-js/compare/v0.0.0...v0.1.0-rc.0) (2020-06-15)
+
+
+### Bug Fixes
+
+* change fallback for each response and validation for widget ([cef4152](https://github.com/chaordic/engage-onsite-sdk-js/commit/cef4152))
+* change theme definition order ([608e88e](https://github.com/chaordic/engage-onsite-sdk-js/commit/608e88e))
+* check in send event if url exist ([bc2d51f](https://github.com/chaordic/engage-onsite-sdk-js/commit/bc2d51f))
+* check widget id ([1bdcfc4](https://github.com/chaordic/engage-onsite-sdk-js/commit/1bdcfc4))
+* classes tests ([0b5c272](https://github.com/chaordic/engage-onsite-sdk-js/commit/0b5c272))
+* doc facades ([826d66d](https://github.com/chaordic/engage-onsite-sdk-js/commit/826d66d))
+* export classes as default ([c0a45d6](https://github.com/chaordic/engage-onsite-sdk-js/commit/c0a45d6))
+* helpers test ([9a8e6a7](https://github.com/chaordic/engage-onsite-sdk-js/commit/9a8e6a7))
+* productFactory ([6a438e4](https://github.com/chaordic/engage-onsite-sdk-js/commit/6a438e4))
+* remove viewUrl validation ([aa7b94a](https://github.com/chaordic/engage-onsite-sdk-js/commit/aa7b94a))
+* rename refreshUrl to refreshReferenceUrl ([c18144d](https://github.com/chaordic/engage-onsite-sdk-js/commit/c18144d))
+* test flow ([8ec4fbf](https://github.com/chaordic/engage-onsite-sdk-js/commit/8ec4fbf))
+
+
+### Features
+
+* events module ([20b4e51](https://github.com/chaordic/engage-onsite-sdk-js/commit/20b4e51))
+* flow to publish at the npm ([a1c48be](https://github.com/chaordic/engage-onsite-sdk-js/commit/a1c48be))
+* **classes:** slot, widget, product ([71d573a](https://github.com/chaordic/engage-onsite-sdk-js/commit/71d573a))
+* helpers module, deviceId and tests ([e4a657b](https://github.com/chaordic/engage-onsite-sdk-js/commit/e4a657b))
+* initial setup ([a012afb](https://github.com/chaordic/engage-onsite-sdk-js/commit/a012afb))
+* pages module ([6681e72](https://github.com/chaordic/engage-onsite-sdk-js/commit/6681e72))
+* validators ([7ddb3c1](https://github.com/chaordic/engage-onsite-sdk-js/commit/7ddb3c1))
+
+
+
 <a name="0.0.0"></a>
 # 0.0.0 (2019-01-03)
 

@@ -17,14 +17,16 @@ Both above can be used as follow
 ```javascript
 const engageOnsiteSdkJs = require('@linx-impulse/engage-onsite-sdk-js');
 
-engageOnsiteSdkJs.validatePageRecommendationsParams({...});
+const { pages } = engageOnsiteSdkJs;
+
+pages.getRecommendations({...});
 ```
 
 - es6 style
 ```javascript
-import { validatePageRecommendationsParams } from '@linx-impulse/engage-onsite-sdk-js';
+import { pages } from '@linx-impulse/engage-onsite-sdk-js';
 
-validatePageRecommendationsParams({...});
+pages.getRecommendations({...});
 ```
 
 ### CDN:
@@ -40,22 +42,29 @@ It will create a global object that can be used as follow:
 <script>
   var engageOnsiteSdk = window.linx.engageOnsiteSdk;
 
-  engageOnsiteSdkJs.validatePageRecommendationsParams({...});
+  engageOnsiteSdkJs.pages.getRecommendations({...});
 </script>
 ```
 
-## Deploy
-The "**deploy**" work together with "**npm**", then you need first setup npm user to publish at the npm repository.
+### Release conventions
+When releasing a new version of this sofware, we should follow the standards described in https://semver.org/
 
-- First, start to login with npm command.
-```bash
-$ npm login
-```
-This command will require a "**user**", "**password**" and "**email***". To work together with the **repository** is necessary that your user been a "**@linx-impulse**" member at the npm.
-- Second, if you are already logged in with npm, then you do not need to execute the command above
+The commands below already follow those guidelines so you should just run:
 
-After you setup, or not, your npm user, you need to execute the command below to run the deploy from your machine.
-```bash
-$ npx run deploy
 ```
-This command will build your project and will generate two files that will be uploaded to npm repository, the first one is the file tha will be used in a "**npm enviroment**", that will be installed by npm in "**node_module**" folder and the second can be used direct from "CDN".
+npm run release
+```
+
+or
+
+```
+yarn release
+```
+
+In case of a prerelease version. We can use the optional parameter:
+
+```
+--prerelease [alpha|beta|rc]
+```
+
+When deciding the prerelease tag, we should follow the guidelines described in https://www.drupal.org/node/467020

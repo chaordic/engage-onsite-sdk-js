@@ -1,9 +1,9 @@
 const merge = require('webpack-merge');
 const webpackConfig = require('./webpack.common');
 
-const nodeConfig = merge(webpackConfig, {
-  target: 'node',
+const npmConfig = merge(webpackConfig, {
   mode: 'production',
+  target: 'web',
   output: {
     filename: 'index.js',
     libraryTarget: 'commonjs2',
@@ -20,6 +20,6 @@ const browserConfig = {
 };
 
 module.exports = [
-  nodeConfig,
-  merge(nodeConfig, browserConfig),
+  npmConfig,
+  merge(npmConfig, browserConfig),
 ];

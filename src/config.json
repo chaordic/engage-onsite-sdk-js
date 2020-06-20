@@ -1,6 +1,10 @@
 {
+  "cookieName": {
+    "deviceId": "chaordic_browserId"
+  },
   "onsite": {
-    "baseURL": "https://recs.chaordicsystems.com/v0"
+    "baseURL": "https://recs.chaordicsystems.com/v1",
+    "deviceIdURL": "https://onsite.chaordicsystems.com/datakeeper/acquireBrowserId"
   },
   "responseType": [
     "onlyIds",

@@ -1,5 +1,7 @@
 dist
+docs
 node_modules
-yarn.lock
 package-lock.json
 yarn-error.log
+.yalc
+yalc.lock

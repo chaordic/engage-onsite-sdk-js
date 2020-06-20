@@ -2,6 +2,35 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.1.0"></a>
+# [0.1.0](https://github.com/chaordic/engage-onsite-sdk-js/compare/v0.0.0...v0.1.0) (2020-06-20)
+
+
+### Bug Fixes
+
+* change fallback for each response and validation for widget ([473c276](https://github.com/chaordic/engage-onsite-sdk-js/commit/473c276))
+* change theme definition order ([7e2040d](https://github.com/chaordic/engage-onsite-sdk-js/commit/7e2040d))
+* check in send event if url exist ([70d45fb](https://github.com/chaordic/engage-onsite-sdk-js/commit/70d45fb))
+* doc facades ([5c58317](https://github.com/chaordic/engage-onsite-sdk-js/commit/5c58317))
+* export classes as default ([c0a45d6](https://github.com/chaordic/engage-onsite-sdk-js/commit/c0a45d6))
+* productFactory ([b29c59e](https://github.com/chaordic/engage-onsite-sdk-js/commit/b29c59e))
+* remove viewUrl validation ([6e2bdf2](https://github.com/chaordic/engage-onsite-sdk-js/commit/6e2bdf2))
+* rename refreshUrl to refreshReferenceUrl ([7b0f050](https://github.com/chaordic/engage-onsite-sdk-js/commit/7b0f050))
+* update commons version and log a messege error ([d3de80a](https://github.com/chaordic/engage-onsite-sdk-js/commit/d3de80a))
+
+
+### Features
+
+* helpers module, deviceId and tests ([e4a657b](https://github.com/chaordic/engage-onsite-sdk-js/commit/e4a657b))
+* **classes:** slot, widget, product ([71d573a](https://github.com/chaordic/engage-onsite-sdk-js/commit/71d573a))
+* events module ([20b4e51](https://github.com/chaordic/engage-onsite-sdk-js/commit/20b4e51))
+* flow to publish at the npm ([a1c48be](https://github.com/chaordic/engage-onsite-sdk-js/commit/a1c48be))
+* initial setup ([a012afb](https://github.com/chaordic/engage-onsite-sdk-js/commit/a012afb))
+* pages module ([6681e72](https://github.com/chaordic/engage-onsite-sdk-js/commit/6681e72))
+* validators ([7ddb3c1](https://github.com/chaordic/engage-onsite-sdk-js/commit/7ddb3c1))
+
+
+
 <a name="0.1.0-rc.0"></a>
 # [0.1.0-rc.0](https://github.com/chaordic/engage-onsite-sdk-js/compare/v0.0.0...v0.1.0-rc.0) (2020-06-15)
 

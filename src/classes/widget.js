@@ -22,6 +22,7 @@ export default class Widget {
    * @param {string} widget.algorithm - Algorithm used to generate recommendations.
    * @param {string} widget.feature - The type of widget. Ex: mostpopular, push, ultimatebuy.
    * @param {string} widget.title - The title of the widget.
+   * @param {string} widget.subtitle - The subtitle of the widget.
    * @param {Product[]} widget.references - An array of reference products, for widgets that need a
    * reference such as similar items and frequently bought together.
    * @param {Product[]} widget.recommendations - An array of product recommendations.
@@ -41,6 +42,7 @@ export default class Widget {
     algorithm = '',
     feature = '',
     title = '',
+    subtitle = '',
     references = null,
     recommendations = [],
     menu,
@@ -75,6 +77,13 @@ export default class Widget {
      * @type {string}
      */
     this.title = title;
+
+    /**
+     * The subtitle of the widget. This subtitle can be registered and changed
+     * on the dashboard.
+     * @type {string}
+     */
+    this.subtitle = subtitle;
 
     /**
      * Url to send the widget's view event. The method sendViewEvent should be

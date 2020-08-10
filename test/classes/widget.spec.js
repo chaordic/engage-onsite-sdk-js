@@ -12,6 +12,7 @@ describe('Widget class', function () {
       algorithm: 'some-algref',
       feature: 'historypersonalized',
       title: 'The hottest of the hottest',
+      subtitle: 'Just for you',
       references: [
         { id: 'some-product-1' },
       ],
@@ -52,6 +53,7 @@ describe('Widget class', function () {
         'algorithm',
         'feature',
         'title',
+        'subtitle',
         'viewUrl',
         'refreshUrl',
       ];

@@ -17,10 +17,12 @@
     "category",
     "subcategory",
     "cart",
+    "checkout",
     "confirmation",
     "userprofile",
     "not_found",
     "search",
+    "transaction",
     "landing_page",
     "other"
   ]

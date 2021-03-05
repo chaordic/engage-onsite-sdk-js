@@ -33,6 +33,7 @@ const { error } = console;
  * @param {boolean} [params.dummy=false] - Return dummy recommendations, these are generated
  * automatically but have no customization, good for testing.
  * @param {boolean} [params.homologation=false] - Return all widgets, even disabled ones.
+ * @param {boolean} [params.preview=false] - Return all widgets with css and configs preview.
  * @param {boolean} [params.showOnlyAvailable=true] - Filter out products with status unavailable
  * or removed.
  * @returns {Object} Returns an object with the slots registered in the dashboard. As well as
@@ -59,6 +60,7 @@ export async function getPageRecommendations({
   salesChannel,
   dummy,
   homologation,
+  preview,
   showOnlyAvailable,
 }) {
   try {
@@ -81,6 +83,7 @@ export async function getPageRecommendations({
         salesChannel,
         dummy,
         homologation,
+        preview,
         showOnlyAvailable,
       },
     });

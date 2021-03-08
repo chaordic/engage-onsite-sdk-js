@@ -3,7 +3,7 @@ import { getCookie } from '@linx-impulse/commons-js/browser/getCookie';
 import { setCookie } from '@linx-impulse/commons-js/browser/setCookie';
 import { deleteCookie } from '@linx-impulse/commons-js/browser/deleteCookie';
 
-import config from '../config.json';
+import config from '../config';
 
 const helpers = {
   ajax,
@@ -11,14 +11,14 @@ const helpers = {
   setCookie,
   deleteCookie,
   getDeviceId: async function getDeviceId(apiKey) {
-    let deviceId = helpers.getCookie(config.cookieName.deviceId);
+    let deviceId = helpers.getCookie(config.production.cookieName.deviceId);
 
     if (!deviceId) {
       deviceId = await helpers.ajax({
-        url: `${config.onsite.deviceIdURL}?q=${JSON.stringify({ apiKey })}`,
+        url: `${config.production.onsite.deviceIdURL}?q=${JSON.stringify({ apiKey })}`,
       });
 
-      helpers.setCookie(config.cookieName.deviceId, deviceId);
+      helpers.setCookie(config.production.cookieName.deviceId, deviceId);
     }
 
     return deviceId;

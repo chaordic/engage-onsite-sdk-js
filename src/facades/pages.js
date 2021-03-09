@@ -67,9 +67,9 @@ export async function getPageRecommendations({
 }) {
   try {
     const baseUrl = config.getBaseUrlByEnv(env);
-    const urlGet = `${baseUrl}/pages/recommendations`;
+    const getPath = `${baseUrl}/pages/recommendations`;
     const response = await helpers.ajax({
-      url: urlGet,
+      url: getPath,
       type: 'GET',
       params: {
         apiKey,

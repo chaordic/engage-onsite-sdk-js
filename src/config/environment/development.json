@@ -2,28 +2,5 @@
     "onsite": {
         "baseURL": "http://localhost:8090/v1",
         "deviceIdURL": "https://onsite.chaordicsystems.com/datakeeper/acquireBrowserId"
-    },
-    "cookieName": {
-        "deviceId": "chaordic_browserId"
-    },
-    "responseType": [
-        "onlyIds",
-        "compact",
-        "complete"
-    ],
-    "pageType": [
-        "home",
-        "product",
-        "category",
-        "subcategory",
-        "cart",
-        "checkout",
-        "confirmation",
-        "userprofile",
-        "not_found",
-        "search",
-        "transaction",
-        "landing_page",
-        "other"
-    ]
+    }
 }

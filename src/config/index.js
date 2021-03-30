@@ -4,6 +4,14 @@ import staging from './environment/staging.json';
 import common from './environment/common.json';
 
 /**
+ * Creates a copy of the common to replace only the
+ * settings of each env above the common ones.
+*/
+const developmentEnv = Object.assign({}, common);
+const productionEnv = Object.assign({}, common);
+const stagingEnv = Object.assign({}, common);
+
+/**
  * Set a different environment to get request at server staging or development.
  * 
  * @param {string} env - Environment to set different url's get request.
@@ -17,14 +25,14 @@ function getBaseUrlByEnv(env) {
   return production.onsite.baseURL;
 }
 
-// Merge common configs to thrid environments.
-Object.assign(development, common);
-Object.assign(production, common);
-Object.assign(staging, common);
+// Merge common configs to three environments.
+Object.assign(developmentEnv, development);
+Object.assign(productionEnv, production);
+Object.assign(stagingEnv, staging);
 
 export default {
-  development,
-  production,
-  staging,
+  development: developmentEnv,
+  production: productionEnv,
+  staging: stagingEnv,
   getBaseUrlByEnv
 }

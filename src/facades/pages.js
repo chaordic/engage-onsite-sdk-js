@@ -1,4 +1,4 @@
-import config from '../config.json';
+import config from '../config';
 import helpers from '../helpers';
 
 const { error } = console;
@@ -33,6 +33,8 @@ const { error } = console;
  * @param {boolean} [params.dummy=false] - Return dummy recommendations, these are generated
  * automatically but have no customization, good for testing.
  * @param {boolean} [params.homologation=false] - Return all widgets, even disabled ones.
+ * @param {boolean} [params.preview=false] - Return all widgets with css and configs preview.
+ * @param {string} [params.env] - Set different environment to request application. 
  * @param {boolean} [params.showOnlyAvailable=true] - Filter out products with status unavailable
  * or removed.
  * @returns {Object} Returns an object with the slots registered in the dashboard. As well as
@@ -59,11 +61,15 @@ export async function getPageRecommendations({
   salesChannel,
   dummy,
   homologation,
+  preview,
+  env,
   showOnlyAvailable,
 }) {
   try {
+    const baseUrl = config.getBaseUrlByEnv(env);
+    const getPath = `${baseUrl}/pages/recommendations`;
     const response = await helpers.ajax({
-      url: `${config.onsite.baseURL}/pages/recommendations`,
+      url: getPath,
       type: 'GET',
       params: {
         apiKey,
@@ -81,6 +87,7 @@ export async function getPageRecommendations({
         salesChannel,
         dummy,
         homologation,
+        preview,
         showOnlyAvailable,
       },
     });

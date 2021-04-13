@@ -1,0 +1,25 @@
+{
+    "cookieName": {
+        "deviceId": "chaordic_browserId"
+    },
+    "responseType": [
+        "onlyIds",
+        "compact",
+        "complete"
+    ],
+    "pageType": [
+        "home",
+        "product",
+        "category",
+        "subcategory",
+        "cart",
+        "checkout",
+        "confirmation",
+        "userprofile",
+        "not_found",
+        "search",
+        "transaction",
+        "landing_page",
+        "other"
+    ]
+}

@@ -1,0 +1,6 @@
+{
+    "onsite": {
+        "baseURL": "https://recs-staging.chaordicsystems.com/v1",
+        "deviceIdURL": "https://onsite.chaordicsystems.com/datakeeper/acquireBrowserId"
+    }
+}

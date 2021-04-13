@@ -1,0 +1,6 @@
+{
+    "onsite": {
+        "baseURL": "http://localhost:8090/v1",
+        "deviceIdURL": "https://onsite.chaordicsystems.com/datakeeper/acquireBrowserId"
+    }
+}

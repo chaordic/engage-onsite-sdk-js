@@ -1,5 +1,5 @@
 import helpers from '../../src/helpers';
-import config from '../../src/config.json';
+import config from '../../src/config';
 
 describe('helpers', function () {
   const mockDevId = 'some-device-id';
@@ -37,13 +37,13 @@ describe('helpers', function () {
 
       server.respondImmediately = true;
 
-      helpers.deleteCookie(config.cookieName.deviceId);
+      helpers.deleteCookie(config.production.cookieName.deviceId);
 
       const setCookieSpy = sandbox.spy(helpers, 'setCookie');
 
       const result = await helpers.getDeviceId('some-api-key');
 
-      expect(setCookieSpy).to.have.been.calledWith(config.cookieName.deviceId, mockDevId);
+      expect(setCookieSpy).to.have.been.calledWith(config.production.cookieName.deviceId, mockDevId);
       expect(result).to.equal(mockDevId);
     });
   });

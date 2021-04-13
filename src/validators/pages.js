@@ -1,4 +1,4 @@
-import config from '../config.json';
+import config from '../config';
 
 export function validate({
   apiKey,
@@ -23,7 +23,7 @@ export function validate({
   if (
     !page
     || typeof page !== 'string'
-    || config.pageType.indexOf(page) === -1
+    || config.production.pageType.indexOf(page) === -1
   ) {
     throw new Error('page is invalid');
   }
@@ -70,7 +70,7 @@ export function validate({
     || (
       typeof productFormat === 'string'
       && productFormat.length
-      && config.responseType.indexOf(productFormat) === -1
+      && config.production.responseType.indexOf(productFormat) === -1
     )
   ) {
     throw new Error('productFormat is invalid');

@@ -1,6 +1,6 @@
 {
   "name": "@linx-impulse/engage-onsite-sdk-js",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "main": "dist/index.js",
   "repository": "git@github.com:chaordic/engage-onsite-sdk-js.git",
   "author": "Ivanildo de Castro <ivanildo.decastro085@gmail.com>",

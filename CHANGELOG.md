@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.4](https://github.com/chaordic/engage-onsite-sdk-js/compare/v0.1.3...v0.1.4) (2021-04-13)
+
+
+### Features
+
+* adding parameter preview to pass to api ([#9](https://github.com/chaordic/engage-onsite-sdk-js/issues/9)) ([e49148a](https://github.com/chaordic/engage-onsite-sdk-js/commit/e49148a22d6c9de4868ac504eb5f151f998b0b9a))
+
 ### [0.1.3](https://github.com/chaordic/engage-onsite-sdk-js/compare/v0.1.2...v0.1.3) (2020-12-17)
 
 <a name="0.1.2"></a>

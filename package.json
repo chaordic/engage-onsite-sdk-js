@@ -37,7 +37,7 @@
     "eslint-loader": "^2.1.1",
     "eslint-plugin-chai-friendly": "^0.4.1",
     "eslint-plugin-import": "^2.14.0",
-    "httpster": "^1.0.4",
+    "httpster": "^1.1.0",
     "karma": "^3.0.0",
     "karma-chai": "^0.1.0",
     "karma-chrome-launcher": "^2.2.0",
